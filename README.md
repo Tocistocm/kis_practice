@@ -1,11 +1,11 @@
 # kis_practice
 
 입력값
-SRS = input("종목 코드를 입력하세요(ex. 6AZ23): ") MNQM24
-EXCH = input("거래소 코드를 입력하세요(ex. CME): ") CME
-STRT_DT = input("조회 시작일을 입력하세요 (YYYYMMDD 형식): ") 20240522
-END_DT = input("조회 종료일을 입력하세요 (YYYYMMDD 형식): ") 20240524
-GAP = input("조회 간격(분)을 입력하세요 (ex. 1) : ") 1
+SRS = input("종목 코드를 입력하세요(ex. 6AZ23): ") MNQM24 \
+EXCH = input("거래소 코드를 입력하세요(ex. CME): ") CME \
+STRT_DT = input("조회 시작일을 입력하세요 (YYYYMMDD 형식): ") 20240522 \
+END_DT = input("조회 종료일을 입력하세요 (YYYYMMDD 형식): ") 20240524 \
+GAP = input("조회 간격(분)을 입력하세요 (ex. 1) : ") 1 \
 
 안녕하세요, 5월 24일에 '해외선물분봉조회 시 시간' 으로 질문 달았던 사람입니다.
 
