@@ -11,7 +11,6 @@ ka.auth()
 ## config.yaml 파일을 설정한 뒤 get_ovsfut_chart_price.py를 실행해서 분봉 데이터 저장 가능
 ## 해외선물 종목정보 마스터파일 다운로드 : https://new.real.download.dws.co.kr/common/master/ffcode.mst.zip
 
-# (0) 필요 모듈 임포트
 
 # (1) 개인정보 파일 가져오기
 with open('config.yaml', encoding='UTF-8') as f:
@@ -25,25 +24,6 @@ ACNT_PRDT_CD = _cfg['ACNT_PRDT_CD']
 URL_BASE = _cfg['URL_BASE']
 HTS_ID = _cfg['HTS_ID']
 
-
-# (2) 함수 정의
-def get_access_token():
-    """ OAuth 인증 > 접근토큰발급 """
-    headers = {"content-type": "application/json"}
-    body = {"grant_type": "client_credentials",
-            "appkey": APP_KEY,
-            "appsecret": APP_SECRET}
-    PATH = "oauth2/tokenP"
-    URL = f"{URL_BASE}/{PATH}"
-    res = requests.post(URL, headers=headers, data=json.dumps(body))
-    time.sleep(0.1)
-    try:
-        ACCESS_TOKEN = res.json()["access_token"]
-        ACCESS_TOKEN_EXPIRED = res.json()["access_token_token_expired"]
-        return ACCESS_TOKEN, ACCESS_TOKEN_EXPIRED
-    except:
-        print("접근 토큰 발급이 불가능합니다")
-        print(res.json())
 
 
 def get_overseas_future_time_price(SRS="6AZ23", EXCH="CME", STRT_DT="", END_DT="", CNT="100", GAP="1", dataframe=None,
@@ -139,9 +119,6 @@ def get_overseas_future_time_price(SRS="6AZ23", EXCH="CME", STRT_DT="", END_DT="
         # print(SRS, EXCH, STRT_DT, END_DT, CNT, GAP)
         return get_overseas_future_time_price(SRS, EXCH, STRT_DT, END_DT, CNT, GAP, dataframe, file_name)
 
-
-# (3) 함수 실행
-# 접근토큰 발급
 
 
 # 사용자 입력 받기
